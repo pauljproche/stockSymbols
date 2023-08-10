@@ -4,9 +4,9 @@
   },
   "name": "mongoaltas-nodejs",
   "version": "1.0.0",
-  "main": "display_BASIC.js",
+  "main": "populateDatabase.js",
   "scripts": {
-    "start": "node display_BASIC.js"
+    "start": "node populateDatabase.js"
   },
   "author": "",
   "license": "ISC",
