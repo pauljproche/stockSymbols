@@ -1,14 +1,14 @@
 const { MongoClient } = require('mongodb');
 const http = require('http');
 
-const uri = "mongodb+srv://taskconnect2:V02gss7wWBeSd47M@cluster0.szozfpl.mongodb.net/?retryWrites=true&w=majority";
+const uri = "mongodb+srv://stockexchangeuser1:w7o8lxhnXVoBHBAx@cluster0.qtbascu.mongodb.net/?retryWrites=true&w=majority";
 
 async function run() {
   const client = new MongoClient(uri);
   try {
     await client.connect();
-    const database = client.db("taskConnect");
-    const collection = database.collection("taskCard");
+    const database = client.db("stockSymbols");
+    const collection = database.collection("companies");
     const query = await collection.find({}).toArray();
     return JSON.stringify(query, null, 2);
   } catch (err) {
@@ -29,7 +29,7 @@ http.createServer(async function (req, res) {
       res.writeHead(200, { 'Content-Type': 'text/html' });
       res.write("<h2>Hello World</h2>");
       res.write("Success! This app is deployed online");
-      res.write("<h3>Query Results:</h3>");
+      res.write("<h3>Query Results for Stock Companies & Symbols:</h3>");
       res.write("<pre>" + queryResult + "</pre>");
       res.end();
     } catch (err) {
